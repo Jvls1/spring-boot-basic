@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Locale;
 
 @Controller
 @RequestMapping
@@ -28,8 +30,16 @@ public class HelloWorldController {
     }
 
     @RequestMapping("/processFormTwo")
-    public String lestShoutDude(HttpServletRequest request, Model model) {
-        System.out.println(request.getParameter("studentName"));
+    public String processFormTwo(HttpServletRequest request, Model model) {
+        String studentName = request.getParameter("studentName").toUpperCase();
+        model.addAttribute("name", studentName);
+        return "helloworld.html";
+    }
+
+    @RequestMapping("/processFormThree")
+    public String processFormThree(@RequestParam("studentName") String studentName, Model model) {
+        studentName = studentName.toUpperCase();
+        model.addAttribute("name", studentName);
         return "helloworld.html";
     }
 

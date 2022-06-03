@@ -1,0 +1,27 @@
+package com.jojo.springmvcdemo;
+
+public class Student {
+
+    private String firstName;
+    private String lastName;
+
+    public Student() {
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        System.out.println(firstName);
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+}
